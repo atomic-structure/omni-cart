@@ -1,0 +1,26 @@
+{
+  "name": "basket-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/basket-api/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "basket-api:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "basket-api:build:development"
+        },
+        "production": {
+          "buildTarget": "basket-api:build:production"
+        }
+      }
+    }
+  }
+}
